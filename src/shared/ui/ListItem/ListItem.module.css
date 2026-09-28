@@ -1,0 +1,87 @@
+.item {
+  /* переменные для содержимого, которое передают снаружи (выделенный текст, акцентные иконки) */
+  --item-emphasis: var(--text);
+  --item-accent: var(--accent);
+
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: var(--hover);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.active,
+.active:hover {
+  --item-emphasis: #fff;
+  --item-accent: rgba(255, 255, 255, 0.9);
+
+  background: var(--active);
+  color: #fff;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.bottom {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.subtitle {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.active .meta,
+.active .subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}

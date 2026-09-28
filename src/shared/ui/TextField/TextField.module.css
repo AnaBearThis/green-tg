@@ -1,0 +1,54 @@
+.field {
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+.label {
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  padding: 0 4px;
+  /* подложка под подписью в цвет родительской панели */
+  background: var(--text-field-label-bg, var(--panel));
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  background: var(--field);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.field:focus-within .label {
+  color: var(--accent);
+}
+
+.invalid .input {
+  border-color: var(--error);
+}
+
+.invalid .label {
+  color: var(--error);
+}
+
+.hint {
+  display: block;
+  margin: 6px 4px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.invalid .hint {
+  color: var(--error);
+}

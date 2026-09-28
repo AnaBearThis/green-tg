@@ -1,0 +1,85 @@
+/* Дизайн-токены и сброс стилей. Стили компонентов лежат рядом с ними в *.module.css */
+:root {
+  --app-bg: #eef0f4;
+  --panel: #ffffff;
+  --panel-border: rgba(0, 0, 0, 0.06);
+  --elevated: #ffffff;
+  --field: #eef0f4;
+  --hover: rgba(120, 120, 128, 0.1);
+  --active: #3e8bf5;
+  --accent: #3e8bf5;
+  --accent-hover: #2f7ae6;
+  --on-accent: #ffffff;
+  --text: #000000;
+  --text-secondary: #8a8a90;
+  --bubble-in: #ffffff;
+  --bubble-in-meta: #8a8a90;
+  --bubble-out: #4a7fe0;
+  --bubble-out-meta: rgba(255, 255, 255, 0.75);
+  --error: #e5484d;
+  --warning-bg: #fff4e5;
+  --warning-text: #8a5300;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --popup-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #131316;
+    --panel: #1f1f22;
+    --panel-border: rgba(255, 255, 255, 0.07);
+    --elevated: #2a2a2e;
+    --field: #151518;
+    --hover: rgba(255, 255, 255, 0.06);
+    --active: #44669c;
+    --accent-hover: #5598f7;
+    --text: #ffffff;
+    --text-secondary: #9a9aa0;
+    --bubble-in: #2a2a2e;
+    --bubble-in-meta: #9a9aa0;
+    --bubble-out: #4a70b8;
+    --warning-bg: #3a2f1b;
+    --warning-text: #f5c77e;
+    --shadow: none;
+    --popup-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--text);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--accent);
+}

@@ -1,0 +1,83 @@
+.root {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+}
+
+.back {
+  display: none;
+}
+
+.peer {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 20px 0 6px;
+}
+
+.peerText {
+  min-width: 0;
+}
+
+.peerName {
+  font-size: 17px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.peerSub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 16px;
+}
+
+.messagesInner {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.composerInput {
+  flex: 1;
+}
+
+/* Стрелка отправки смотрит вверх-вправо. После поворота её широкая задняя часть
+   визуально тянет иконку вниз-влево, поэтому сдвигаем на 10% размера вверх-вправо (оптический центр). */
+.sendIcon {
+  transform: translate(10%, -10%) rotate(-45deg);
+}
+
+@media (max-width: 760px) {
+  .back {
+    display: inline-flex;
+  }
+
+  .messages {
+    padding: 8px 14px;
+  }
+}

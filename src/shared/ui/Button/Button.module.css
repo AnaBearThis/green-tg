@@ -1,0 +1,141 @@
+.button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    opacity 0.15s;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- Варианты ---- */
+
+.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.primary:disabled {
+  opacity: 0.6;
+}
+
+.secondary {
+  background: var(--panel);
+  border-color: var(--panel-border);
+  color: var(--text);
+}
+
+.ghost,
+.ghostAccent,
+.ghostDanger {
+  background: transparent;
+  font-weight: 500;
+}
+
+.ghost {
+  color: var(--text-secondary);
+}
+
+.ghostAccent {
+  color: var(--accent);
+}
+
+.ghostDanger {
+  color: var(--error);
+}
+
+.secondary:hover:not(:disabled),
+.ghost:hover:not(:disabled),
+.ghostAccent:hover:not(:disabled),
+.ghostDanger:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.secondary:disabled,
+.ghost:disabled,
+.ghostAccent:disabled,
+.ghostDanger:disabled {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* ---- Размеры: высота и отступы для обычной формы ---- */
+
+.xs {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.sm {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.md {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+}
+
+.lg {
+  height: 52px;
+  padding: 0 20px;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+}
+
+/* ---- Круглая форма: квадрат размера высоты ---- */
+
+.circle {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.circle.xs {
+  width: 28px;
+  height: 28px;
+}
+
+.circle.sm {
+  width: 32px;
+}
+
+.circle.md {
+  width: 40px;
+}
+
+.circle.lg {
+  width: 56px;
+  height: 56px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.alignStart {
+  justify-content: flex-start;
+  text-align: left;
+}

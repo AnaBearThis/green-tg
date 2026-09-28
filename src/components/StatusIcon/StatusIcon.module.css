@@ -1,0 +1,9 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.error {
+  /* внутри исходящего пузыря переопределяется на белый */
+  color: var(--status-error, var(--error));
+}

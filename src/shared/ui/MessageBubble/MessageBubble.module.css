@@ -1,0 +1,82 @@
+.bubble {
+  position: relative;
+  max-width: min(520px, 80%);
+  padding: 7px 12px;
+  border-radius: 18px;
+  background: var(--bubble-in);
+  box-shadow: var(--shadow);
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.in {
+  align-self: flex-start;
+}
+
+.out {
+  /* иконка ошибки внутри синего пузыря — белый круг с «!» в цвет пузыря */
+  --status-error: #fff;
+  --status-error-mark: var(--bubble-out);
+
+  align-self: flex-end;
+  background: var(--bubble-out);
+  color: #fff;
+}
+
+.tail {
+  margin-bottom: 6px;
+}
+
+/* Хвостик рисуется маской в цвет пузыря */
+.tail::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 14px;
+  height: 18px;
+  background: inherit;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath d='M0 0v18h14C5 17 0 11 0 0z'/%3E%3C/svg%3E") no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath d='M0 0v18h14C5 17 0 11 0 0z'/%3E%3C/svg%3E") no-repeat;
+}
+
+.out.tail {
+  border-bottom-right-radius: 0;
+}
+
+.out.tail::after {
+  right: -13px;
+}
+
+.in.tail {
+  border-bottom-left-radius: 0;
+}
+
+.in.tail::after {
+  left: -13px;
+  transform: scaleX(-1);
+}
+
+.text {
+  white-space: pre-wrap;
+}
+
+.meta {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin: 7px -2px -4px 10px;
+  font-size: 13px;
+  color: var(--bubble-in-meta);
+  user-select: none;
+}
+
+.out .meta {
+  color: var(--bubble-out-meta);
+}
+
+@media (max-width: 760px) {
+  .bubble {
+    max-width: 85%;
+  }
+}

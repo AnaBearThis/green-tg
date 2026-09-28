@@ -1,0 +1,9 @@
+.chip {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 18px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  font-size: 15px;
+}

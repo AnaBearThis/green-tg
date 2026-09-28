@@ -1,0 +1,24 @@
+.alert {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.warning {
+  background: var(--warning-bg);
+  color: var(--warning-text);
+}
+
+.error {
+  background: color-mix(in srgb, var(--error) 12%, transparent);
+  color: var(--error);
+}
+
+.info {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--text);
+}

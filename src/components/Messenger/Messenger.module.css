@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* На узком экране показываем либо список, либо открытый чат */
+@media (max-width: 760px) {
+  .root {
+    padding: 6px;
+  }
+
+  .root[data-active='true'] .sidebar,
+  .root[data-active='false'] .main {
+    display: none;
+  }
+}
