@@ -28,9 +28,10 @@ export interface Chat {
 
 export type Chats = Record<string, Chat>
 
+export type StatusAction = Extract<ChatsAction, { type: 'status' }>
+
 export type ChatsAction =
-  | { type: 'reset'; chats: Chats }
-  | { type: 'open'; chatId: string; name: string }
+  | { type: 'open'; chatId: string; name: string; createdAt: number }
   | { type: 'add'; chatId: string; name?: string; message: Message }
   | { type: 'update'; chatId: string; id: string; patch: Partial<Message> }
   | { type: 'status'; chatId: string; id: string; status: MessageStatus; error?: string }
@@ -38,11 +39,9 @@ export type ChatsAction =
 
 export function chatsReducer(state: Chats, action: ChatsAction): Chats {
   switch (action.type) {
-    case 'reset':
-      return action.chats
     case 'open':
       if (state[action.chatId]) return state
-      return { ...state, [action.chatId]: { chatId: action.chatId, name: action.name, createdAt: Date.now(), messages: [] } }
+      return { ...state, [action.chatId]: { chatId: action.chatId, name: action.name, createdAt: action.createdAt, messages: [] } }
     case 'add': {
       const chat = state[action.chatId] ?? {
         chatId: action.chatId,

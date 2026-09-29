@@ -1,17 +1,19 @@
 import { useRef, useState, type FormEvent } from 'react'
 import { lastMessage, sortedChats, type Chats } from '../../chats'
 import { formatListTime } from '../../format'
+import type { ReceivingState } from '../../hooks'
 import { cx } from '../../shared/lib/cx'
 import { Alert, Avatar, Badge, Button, EmptyState, Icon, IconButton, ListItem, Menu, Panel, PillInput, Spinner } from '../../shared/ui'
 import { StatusIcon } from '../StatusIcon/StatusIcon'
 import s from './Sidebar.module.css'
 
-export type ReceivingState = 'unknown' | 'ok' | 'disabled' | 'enabling' | 'pending'
-
 interface Props {
   chats: Chats
   activeChatId: string | null
   idInstance: string
+  /** false — очередь уведомлений читает другая открытая вкладка */
+  receivesHere?: boolean
+  /** Предупреждение о проблемах со связью или настройками */
   pollError: string
   receiving: ReceivingState
   onEnableReceiving: () => void
@@ -26,6 +28,7 @@ export function Sidebar({
   chats,
   activeChatId,
   idInstance,
+  receivesHere = true,
   pollError,
   receiving,
   onEnableReceiving,
@@ -58,7 +61,12 @@ export function Sidebar({
         <Menu
           icon="menu"
           label="Меню"
-          header={`Инстанс ${idInstance}`}
+          header={
+            <>
+              Инстанс {idInstance}
+              {!receivesHere && <div>Сообщения принимает другая вкладка</div>}
+            </>
+          }
           items={[{ label: 'Выйти', onSelect: onLogout, danger: true }]}
         />
         <h1 className={s.title}>Чаты</h1>
